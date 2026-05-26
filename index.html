@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,15 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kowsik | Portfolio</title>
 
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.png">
+
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
   <style>
+
     *{
       margin:0;
       padding:0;
@@ -24,9 +29,20 @@
     }
 
     body{
-      background:#0f172a;
+      background:linear-gradient(to right,#0f172a,#111827);
       color:white;
       overflow-x:hidden;
+    }
+
+    /* SCROLLBAR */
+
+    ::-webkit-scrollbar{
+      width:10px;
+    }
+
+    ::-webkit-scrollbar-thumb{
+      background:#38bdf8;
+      border-radius:20px;
     }
 
     /* NAVBAR */
@@ -36,18 +52,19 @@
       position:fixed;
       top:0;
       left:0;
-      padding:20px 8%;
+      padding:18px 8%;
       display:flex;
       justify-content:space-between;
       align-items:center;
-      backdrop-filter:blur(10px);
+      backdrop-filter:blur(12px);
       background:rgba(15,23,42,0.7);
       z-index:1000;
     }
 
     nav h1{
-      font-size:28px;
       color:#38bdf8;
+      font-size:28px;
+      font-weight:700;
     }
 
     nav ul{
@@ -61,48 +78,83 @@
       color:white;
       font-weight:500;
       transition:0.3s;
+      position:relative;
+    }
+
+    nav ul li a::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-5px;
+      width:0%;
+      height:2px;
+      background:#38bdf8;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover::after{
+      width:100%;
     }
 
     nav ul li a:hover{
       color:#38bdf8;
     }
 
-    /* HERO SECTION */
+    /* HERO */
 
     .hero{
       min-height:100vh;
       display:flex;
       justify-content:center;
       align-items:center;
-      padding:120px 8%;
       gap:60px;
+      padding:120px 8%;
       flex-wrap:wrap;
     }
 
     .hero-text{
       flex:1;
       min-width:300px;
+      animation:fadeUp 1s ease;
     }
 
     .hero-text h3{
-      font-size:25px;
       color:#94a3b8;
+      font-size:24px;
     }
 
     .hero-text h1{
       font-size:60px;
-      margin:10px 0;
       color:#38bdf8;
+      margin:10px 0;
     }
 
     .hero-text h2{
-      font-size:35px;
+      font-size:34px;
       margin-bottom:20px;
     }
 
+    .typing{
+      color:#38bdf8;
+      border-right:3px solid #38bdf8;
+      white-space:nowrap;
+      overflow:hidden;
+      width:0;
+      animation:typing 4s steps(30,end) infinite alternate;
+    }
+
+    @keyframes typing{
+      from{
+        width:0;
+      }
+      to{
+        width:100%;
+      }
+    }
+
     .hero-text p{
-      line-height:1.8;
       color:#cbd5e1;
+      line-height:1.8;
       margin-bottom:30px;
       max-width:600px;
     }
@@ -112,11 +164,12 @@
       padding:14px 32px;
       background:#38bdf8;
       color:#0f172a;
-      text-decoration:none;
       border-radius:40px;
+      text-decoration:none;
       font-weight:600;
       transition:0.3s;
       margin-right:15px;
+      margin-top:10px;
     }
 
     .btn:hover{
@@ -134,14 +187,14 @@
       width:45px;
       height:45px;
       border-radius:50%;
+      background:#1e293b;
       display:flex;
       justify-content:center;
       align-items:center;
-      text-decoration:none;
-      background:#1e293b;
       color:white;
-      font-size:20px;
+      text-decoration:none;
       transition:0.3s;
+      font-size:20px;
     }
 
     .socials a:hover{
@@ -155,6 +208,7 @@
       display:flex;
       justify-content:center;
       min-width:300px;
+      animation:fadeUp 1.5s ease;
     }
 
     .hero-img img{
@@ -164,6 +218,11 @@
       border-radius:50%;
       border:8px solid #38bdf8;
       box-shadow:0 0 50px rgba(56,189,248,0.5);
+      transition:0.5s;
+    }
+
+    .hero-img img:hover{
+      transform:scale(1.05);
     }
 
     /* SECTION */
@@ -174,9 +233,9 @@
 
     .section-title{
       text-align:center;
-      font-size:40px;
-      margin-bottom:50px;
       color:#38bdf8;
+      font-size:42px;
+      margin-bottom:50px;
     }
 
     /* ABOUT */
@@ -184,13 +243,14 @@
     .about{
       display:flex;
       gap:50px;
-      flex-wrap:wrap;
       align-items:center;
+      flex-wrap:wrap;
     }
 
     .about img{
       width:320px;
       border-radius:20px;
+      box-shadow:0 0 25px rgba(56,189,248,0.3);
     }
 
     .about-text{
@@ -199,7 +259,7 @@
 
     .about-text p{
       color:#cbd5e1;
-      line-height:1.8;
+      line-height:1.9;
     }
 
     /* SKILLS */
@@ -212,10 +272,11 @@
 
     .skill-box{
       background:#1e293b;
-      padding:30px;
+      padding:35px;
       border-radius:20px;
       text-align:center;
-      transition:0.3s;
+      transition:0.4s;
+      animation:fadeUp 1s ease;
     }
 
     .skill-box:hover{
@@ -241,7 +302,8 @@
       background:#1e293b;
       border-radius:20px;
       overflow:hidden;
-      transition:0.3s;
+      transition:0.4s;
+      animation:fadeUp 1s ease;
     }
 
     .project-card:hover{
@@ -252,6 +314,11 @@
       width:100%;
       height:220px;
       object-fit:cover;
+      transition:0.5s;
+    }
+
+    .project-card:hover img{
+      transform:scale(1.08);
     }
 
     .project-content{
@@ -264,6 +331,33 @@
 
     .project-content p{
       color:#cbd5e1;
+      margin-bottom:20px;
+    }
+
+    /* CERTIFICATES */
+
+    .certificates{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .certificate-box{
+      background:#1e293b;
+      padding:30px;
+      border-radius:20px;
+      text-align:center;
+      transition:0.4s;
+    }
+
+    .certificate-box:hover{
+      transform:translateY(-10px);
+      background:#38bdf8;
+      color:#0f172a;
+    }
+
+    .certificate-box i{
+      font-size:40px;
       margin-bottom:15px;
     }
 
@@ -274,24 +368,56 @@
     }
 
     .contact p{
-      margin-bottom:20px;
+      margin-bottom:15px;
       color:#cbd5e1;
     }
 
+    .contact-form{
+      max-width:700px;
+      margin:auto;
+      margin-top:40px;
+    }
+
+    .contact-form input,
+    .contact-form textarea{
+      width:100%;
+      padding:15px;
+      margin-bottom:20px;
+      border:none;
+      outline:none;
+      border-radius:10px;
+      background:#1e293b;
+      color:white;
+    }
+
+    .contact-form textarea{
+      resize:none;
+      height:150px;
+    }
+
     footer{
+      background:#020617;
       text-align:center;
       padding:25px;
-      background:#020617;
       color:#94a3b8;
+    }
+
+    /* ANIMATION */
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
     }
 
     /* RESPONSIVE */
 
     @media(max-width:900px){
-
-      nav ul{
-        gap:15px;
-      }
 
       .hero-text h1{
         font-size:45px;
@@ -304,6 +430,10 @@
       .hero-img img{
         width:280px;
         height:280px;
+      }
+
+      nav ul{
+        gap:15px;
       }
     }
 
@@ -319,6 +449,10 @@
         justify-content:center;
       }
 
+      section{
+        padding:80px 5%;
+      }
+
       .hero{
         text-align:center;
       }
@@ -328,9 +462,14 @@
       }
 
       .hero-text h1{
-        font-size:38px;
+        font-size:36px;
+      }
+
+      .hero-text h2{
+        font-size:24px;
       }
     }
+
   </style>
 </head>
 
@@ -339,6 +478,7 @@
   <!-- NAVBAR -->
 
   <nav>
+
     <h1>N.V.D.KOWSIK</h1>
 
     <ul>
@@ -346,8 +486,10 @@
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#certificates">Certificates</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+
   </nav>
 
   <!-- HERO -->
@@ -355,29 +497,57 @@
   <section class="hero" id="home">
 
     <div class="hero-text">
+
       <h3>Hello, I'm</h3>
+
       <h1>NEDURI VEERA DURGA KOWSIK</h1>
-      <h2>Web Developer & Designer</h2>
+
+      <h2 class="typing">
+        Web Developer & AI Engineer
+      </h2>
 
       <p>
         Passionate web developer focused on creating modern,
-        responsive and user-friendly websites with clean design
-        and smooth user experience.
+        responsive and user-friendly websites with beautiful UI,
+        clean code and smooth user experience.
       </p>
 
-      <a href="#" class="btn">Download CV</a>
-      <a href="#contact" class="btn">Hire Me</a>
+      <a href="resume.pdf" download class="btn">
+        Download CV
+      </a>
+
+      <a href="#contact" class="btn">
+        Hire Me
+      </a>
 
       <div class="socials">
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
+
+        <a href="https://linkedin.com" target="_blank">
+          <i class="fab fa-linkedin"></i>
+        </a>
+
+        <a href="https://github.com" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+
+        <a href="https://instagram.com" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="https://twitter.com" target="_blank">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+
       </div>
+
     </div>
 
     <div class="hero-img">
-      <img src="1.jpeg" alt="">
+
+      <img src="1.jpeg"
+      alt="Kowsik Profile Photo"
+      loading="lazy">
+
     </div>
 
   </section>
@@ -390,7 +560,9 @@
 
     <div class="about">
 
-      <img src="2.jpeg" alt="">
+      <img src="2.jpeg"
+      alt="About Kowsik"
+      loading="lazy">
 
       <div class="about-text">
 
@@ -433,16 +605,21 @@
 
       <div class="skill-box">
         <i class="fab fa-react"></i>
+        <h3>React</h3>
+      </div>
+
+      <div class="skill-box">
+        <i class="fab fa-java"></i>
         <h3>Java</h3>
       </div>
 
       <div class="skill-box">
-        <i class="fab fa-js"></i>
+        <i class="fab fa-python"></i>
         <h3>Python</h3>
       </div>
 
       <div class="skill-box">
-        <i class="fab fa-js"></i>
+        <i class="fas fa-code"></i>
         <h3>C</h3>
       </div>
 
@@ -459,42 +636,96 @@
     <div class="projects">
 
       <div class="project-card">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop" alt="">
+
+        <img src="project1.jpg"
+        alt="Portfolio Website">
 
         <div class="project-content">
+
           <h3>Portfolio Website</h3>
+
           <p>
-            Modern responsive personal portfolio website with animations.
+            Modern responsive personal portfolio website
+            with animations and premium UI design.
           </p>
 
-          <a href="#" class="btn">View Project</a>
+          <a href="#" class="btn">
+            View Project
+          </a>
+
         </div>
+
       </div>
 
       <div class="project-card">
-        <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200&auto=format&fit=crop" alt="">
+
+        <img src="project2.jpg"
+        alt="E-Commerce Website">
 
         <div class="project-content">
+
           <h3>E-Commerce Website</h3>
+
           <p>
-            Fully responsive online shopping website UI design.
+            Fully responsive online shopping website UI
+            with modern layout and design.
           </p>
 
-          <a href="#" class="btn">View Project</a>
+          <a href="#" class="btn">
+            View Project
+          </a>
+
         </div>
+
       </div>
 
       <div class="project-card">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="">
+
+        <img src="project3.jpg"
+        alt="Dashboard UI">
 
         <div class="project-content">
+
           <h3>Dashboard UI</h3>
+
           <p>
-            Clean admin dashboard with charts and responsive layout.
+            Clean admin dashboard UI with charts,
+            responsive design and analytics section.
           </p>
 
-          <a href="#" class="btn">View Project</a>
+          <a href="#" class="btn">
+            View Project
+          </a>
+
         </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CERTIFICATES -->
+
+  <section id="certificates">
+
+    <h2 class="section-title">Certificates</h2>
+
+    <div class="certificates">
+
+      <div class="certificate-box">
+        <i class="fas fa-award"></i>
+        <h3>Web Development</h3>
+      </div>
+
+      <div class="certificate-box">
+        <i class="fas fa-certificate"></i>
+        <h3>AI Internship</h3>
+      </div>
+
+      <div class="certificate-box">
+        <i class="fas fa-medal"></i>
+        <h3>Python Programming</h3>
       </div>
 
     </div>
@@ -507,19 +738,41 @@
 
     <h2 class="section-title">Contact Me</h2>
 
-    <p>Email: kowsik@example.com</p>
+    <p>Email: yourmail@gmail.com</p>
+
     <p>Phone: +91 9876543210</p>
 
-    <a href="mailto:kowsik@example.com" class="btn">
-      Send Email
-    </a>
+    <div class="contact-form">
+
+      <form>
+
+        <input type="text"
+        placeholder="Your Name"
+        required>
+
+        <input type="email"
+        placeholder="Your Email"
+        required>
+
+        <textarea
+        placeholder="Your Message"></textarea>
+
+        <button type="submit" class="btn">
+          Send Message
+        </button>
+
+      </form>
+
+    </div>
 
   </section>
 
   <!-- FOOTER -->
 
   <footer>
+
     © 2026 N.V D Kowsik | All Rights Reserved
+
   </footer>
 
 </body>
