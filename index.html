@@ -1,0 +1,526 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kowsik | Portfolio</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#0f172a;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      position:fixed;
+      top:0;
+      left:0;
+      padding:20px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      backdrop-filter:blur(10px);
+      background:rgba(15,23,42,0.7);
+      z-index:1000;
+    }
+
+    nav h1{
+      font-size:28px;
+      color:#38bdf8;
+    }
+
+    nav ul{
+      display:flex;
+      gap:30px;
+      list-style:none;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#38bdf8;
+    }
+
+    /* HERO SECTION */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:120px 8%;
+      gap:60px;
+      flex-wrap:wrap;
+    }
+
+    .hero-text{
+      flex:1;
+      min-width:300px;
+    }
+
+    .hero-text h3{
+      font-size:25px;
+      color:#94a3b8;
+    }
+
+    .hero-text h1{
+      font-size:60px;
+      margin:10px 0;
+      color:#38bdf8;
+    }
+
+    .hero-text h2{
+      font-size:35px;
+      margin-bottom:20px;
+    }
+
+    .hero-text p{
+      line-height:1.8;
+      color:#cbd5e1;
+      margin-bottom:30px;
+      max-width:600px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 32px;
+      background:#38bdf8;
+      color:#0f172a;
+      text-decoration:none;
+      border-radius:40px;
+      font-weight:600;
+      transition:0.3s;
+      margin-right:15px;
+    }
+
+    .btn:hover{
+      transform:translateY(-5px);
+      box-shadow:0 10px 25px rgba(56,189,248,0.5);
+    }
+
+    .socials{
+      margin-top:30px;
+      display:flex;
+      gap:20px;
+    }
+
+    .socials a{
+      width:45px;
+      height:45px;
+      border-radius:50%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-decoration:none;
+      background:#1e293b;
+      color:white;
+      font-size:20px;
+      transition:0.3s;
+    }
+
+    .socials a:hover{
+      background:#38bdf8;
+      color:#0f172a;
+      transform:translateY(-5px);
+    }
+
+    .hero-img{
+      flex:1;
+      display:flex;
+      justify-content:center;
+      min-width:300px;
+    }
+
+    .hero-img img{
+      width:350px;
+      height:350px;
+      object-fit:cover;
+      border-radius:50%;
+      border:8px solid #38bdf8;
+      box-shadow:0 0 50px rgba(56,189,248,0.5);
+    }
+
+    /* SECTION */
+
+    section{
+      padding:100px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:40px;
+      margin-bottom:50px;
+      color:#38bdf8;
+    }
+
+    /* ABOUT */
+
+    .about{
+      display:flex;
+      gap:50px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .about img{
+      width:320px;
+      border-radius:20px;
+    }
+
+    .about-text{
+      flex:1;
+    }
+
+    .about-text p{
+      color:#cbd5e1;
+      line-height:1.8;
+    }
+
+    /* SKILLS */
+
+    .skills-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+    }
+
+    .skill-box{
+      background:#1e293b;
+      padding:30px;
+      border-radius:20px;
+      text-align:center;
+      transition:0.3s;
+    }
+
+    .skill-box:hover{
+      transform:translateY(-10px);
+      background:#38bdf8;
+      color:#0f172a;
+    }
+
+    .skill-box i{
+      font-size:45px;
+      margin-bottom:15px;
+    }
+
+    /* PROJECTS */
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .project-card{
+      background:#1e293b;
+      border-radius:20px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .project-card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .project-content{
+      padding:25px;
+    }
+
+    .project-content h3{
+      margin-bottom:10px;
+    }
+
+    .project-content p{
+      color:#cbd5e1;
+      margin-bottom:15px;
+    }
+
+    /* CONTACT */
+
+    .contact{
+      text-align:center;
+    }
+
+    .contact p{
+      margin-bottom:20px;
+      color:#cbd5e1;
+    }
+
+    footer{
+      text-align:center;
+      padding:25px;
+      background:#020617;
+      color:#94a3b8;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px){
+
+      nav ul{
+        gap:15px;
+      }
+
+      .hero-text h1{
+        font-size:45px;
+      }
+
+      .hero-text h2{
+        font-size:28px;
+      }
+
+      .hero-img img{
+        width:280px;
+        height:280px;
+      }
+    }
+
+    @media(max-width:600px){
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .hero{
+        text-align:center;
+      }
+
+      .socials{
+        justify-content:center;
+      }
+
+      .hero-text h1{
+        font-size:38px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <h1>N.V.D.KOWSIK</h1>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-text">
+      <h3>Hello, I'm</h3>
+      <h1>NEDURI VEERA DURGA KOWSIK</h1>
+      <h2>Web Developer & Designer</h2>
+
+      <p>
+        Passionate web developer focused on creating modern,
+        responsive and user-friendly websites with clean design
+        and smooth user experience.
+      </p>
+
+      <a href="#" class="btn">Download CV</a>
+      <a href="#contact" class="btn">Hire Me</a>
+
+      <div class="socials">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+    <div class="hero-img">
+      <img src="1.jpeg" alt="">
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <h2 class="section-title">About Me</h2>
+
+    <div class="about">
+
+      <img src="2.jpeg" alt="">
+
+      <div class="about-text">
+
+        <p>
+          I am a passionate and creative web developer who loves
+          building attractive and responsive websites. I enjoy
+          learning new technologies and improving my skills every day.
+          My goal is to create modern digital experiences that look
+          professional and work perfectly on all devices.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <h2 class="section-title">My Skills</h2>
+
+    <div class="skills-container">
+
+      <div class="skill-box">
+        <i class="fab fa-html5"></i>
+        <h3>HTML</h3>
+      </div>
+
+      <div class="skill-box">
+        <i class="fab fa-css3-alt"></i>
+        <h3>CSS</h3>
+      </div>
+
+      <div class="skill-box">
+        <i class="fab fa-js"></i>
+        <h3>JavaScript</h3>
+      </div>
+
+      <div class="skill-box">
+        <i class="fab fa-react"></i>
+        <h3>Java</h3>
+      </div>
+
+      <div class="skill-box">
+        <i class="fab fa-js"></i>
+        <h3>Python</h3>
+      </div>
+
+      <div class="skill-box">
+        <i class="fab fa-js"></i>
+        <h3>C</h3>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <h2 class="section-title">Projects</h2>
+
+    <div class="projects">
+
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop" alt="">
+
+        <div class="project-content">
+          <h3>Portfolio Website</h3>
+          <p>
+            Modern responsive personal portfolio website with animations.
+          </p>
+
+          <a href="#" class="btn">View Project</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200&auto=format&fit=crop" alt="">
+
+        <div class="project-content">
+          <h3>E-Commerce Website</h3>
+          <p>
+            Fully responsive online shopping website UI design.
+          </p>
+
+          <a href="#" class="btn">View Project</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="">
+
+        <div class="project-content">
+          <h3>Dashboard UI</h3>
+          <p>
+            Clean admin dashboard with charts and responsive layout.
+          </p>
+
+          <a href="#" class="btn">View Project</a>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact" class="contact">
+
+    <h2 class="section-title">Contact Me</h2>
+
+    <p>Email: kowsik@example.com</p>
+    <p>Phone: +91 9876543210</p>
+
+    <a href="mailto:kowsik@example.com" class="btn">
+      Send Email
+    </a>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 N.V D Kowsik | All Rights Reserved
+  </footer>
+
+</body>
+</html>
